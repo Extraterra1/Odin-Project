@@ -1,0 +1,36 @@
+html {
+  font-family: "Lucida Console";
+  background-color: beige;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10rem;
+}
+
+li {
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+  margin-top: 2rem;
+}
+a:link {
+  color: black;
+}
+ul,
+ol {
+  list-style: none;
+  text-align: center;
+}
+
+img {
+  border-radius: 10px;
+  margin-bottom: 5rem;
+}
+.center {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 5rem;
+}
