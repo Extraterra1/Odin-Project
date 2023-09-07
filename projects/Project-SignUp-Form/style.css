@@ -1,0 +1,227 @@
+@font-face {
+  font-family: "norsebold";
+  src: url("fonts/norse-bold-webfont.woff2") format("woff2"), url("fonts/norse-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "roboto", sans-serif;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.leaves-box {
+  background-image: url("img/leaves.jpg");
+  background-size: cover;
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.content {
+  background-color: aliceblue;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3rem;
+}
+
+.logo-title {
+  color: white;
+  font-size: 13rem;
+  font-family: "norsebold", sans-serif;
+}
+
+.logo-img {
+  max-width: 150px;
+}
+
+.credits {
+  flex: 1 1 50%;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+}
+
+.credits p,
+.credits a {
+  font-size: 1.5rem;
+}
+
+.credits a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text {
+  background-color: #eee;
+  flex: 0 0 25%;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 10rem;
+}
+
+.text > p {
+  width: 50ch;
+}
+
+.text p,
+em {
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  color: rgb(31, 31, 31);
+}
+
+p:nth-child(2) {
+  margin-bottom: 3rem;
+}
+
+form {
+  background-color: #eee;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+form > div {
+  flex-grow: 1;
+  padding: 5rem;
+}
+
+.form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  gap: 2rem;
+  padding-left: 10rem;
+}
+
+.form-fields > * {
+  flex-basis: 100%;
+}
+
+.form-fields h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  color: rgb(31, 31, 31);
+}
+
+.form-group {
+  display: flex;
+  gap: 4rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-basis: 25%;
+  gap: 1rem;
+  position: relative;
+}
+
+.input-group label {
+  color: rgb(59, 59, 59);
+  font-size: 1.7rem;
+  letter-spacing: 0.2rem;
+}
+
+.input-group input {
+  padding: 0.5rem 0rem;
+  padding-left: 0.5rem;
+  border: 1px solid silver;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  outline: none;
+  background-color: rgb(250, 250, 250);
+}
+
+.input-group input:active,
+.input-group input:focus {
+  outline: none;
+  border: 1px solid rgb(0, 140, 255);
+  background-color: white;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.input-group input[type="password"].error {
+  border: 1px solid #cc0000;
+  background-color: white;
+}
+.input-group:has(input[type="password"].error):after {
+  content: "* Passwords do not match";
+  color: #cc0000;
+  position: absolute;
+  top: 100%;
+}
+
+.submit-container {
+  padding-left: 10rem;
+}
+
+.submit-container button {
+  padding: 1rem 4rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #596d48;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.submit-container button:hover {
+  transform: translateY(-0.7rem) scale(1.1);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.submit-container p,
+.submit-container a {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.submit-container a {
+  color: #596d48;
+  font-weight: 700;
+}

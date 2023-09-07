@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="leaves-box">
+      <div class="logo">
+        <div class="logo-container">
+          <img src="img/odin-lined.png" alt="Odin Logo" class="logo-img" />
+          <h1 class="logo-title">ODIN</h1>
+        </div>
+      </div>
+      <div class="credits">
+        <p>Photo by <a href="https://unsplash.com/@haliewestphoto">Halie West</a> on <a href="https://unsplash.com/">Unsplash</a></p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="text">
+        <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+        <p>Sign up <em>now</em> to get started</p>
+        <p>You <em>know</em> you want to.</p>
+      </div>
+
+      <form action="/" method="get">
+        <div class="form-fields">
+          <h2>Let's do this!</h2>
+          <div class="form-group">
+            <div class="input-group">
+              <label for="firstName">First Name</label>
+              <input type="text" name="firstName" id="firstName" />
+            </div>
+            <div class="input-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" />
+            </div>
+            <div class="input-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <label for="pass">Password</label>
+              <input class="error" type="password" id="pass" name="pass" />
+            </div>
+            <div class="input-group">
+              <label for="confirmPass">Confirm Password</label>
+              <input class="error" type="password" id="confirmPass" name="confirmPass" />
+            </div>
+          </div>
+        </div>
+        <div class="submit-container">
+          <button type="submit">Create Account</button>
+          <p>Already have an account? <a href="">Log in</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script>
+    const handleChange = (e) => {
+      const elements = document.querySelectorAll('input[type="password"]');
+      const [pass, confirmPass] = elements;
+      if (pass.value === confirmPass.value) {
+        elements.forEach((e) => e.classList.remove("error"));
+      } else {
+        elements.forEach((e) => {
+          if (!e.classList.contains("error")) e.classList.add("error");
+        });
+      }
+    };
+    document.querySelectorAll('input[type="password"]').forEach((e) => e.addEventListener("blur", handleChange));
+  </script>
+</html>
