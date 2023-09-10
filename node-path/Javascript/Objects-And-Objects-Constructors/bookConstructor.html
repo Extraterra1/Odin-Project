@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book</title>
+  </head>
+  <body></body>
+  <script>
+    function Book(title, author, pages, read) {
+      this.title = title;
+      this.author = author;
+      this.pages = pages;
+      this.read = read;
+      this.info = () => `${title} by ${author}, ${pages}pages, ${read ? "read✅" : "not read yet"}`;
+    }
+
+    const theHobbit = new Book("the hobbit", "JRR", 232, true);
+    document.querySelector("body").textContent = theHobbit.info();
+  </script>
+</html>
