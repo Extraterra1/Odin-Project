@@ -1,12 +1,11 @@
-import PubSub from "pubsub-js";
+import PubSub from 'pubsub-js';
 
 export default class Todo {
-  constructor(title, description, dueDate, priority = 0) {
+  constructor(title, description, dueDate, completed = false) {
     this.title = title;
     this.description = description;
-    this.completed = false;
+    this.completed = completed;
     this.dueDate = dueDate;
-    this.priority = priority;
-    PubSub.publish("newTodo", this);
+    PubSub.publish('newTodo', this);
   }
 }
