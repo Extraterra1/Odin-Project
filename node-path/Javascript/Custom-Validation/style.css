@@ -13,3 +13,31 @@ main {
   display: grid;
   place-items: center;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+input,
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  appearance: none;
+}
+
+button {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+input:valid {
+  border: 2px solid green;
+}
