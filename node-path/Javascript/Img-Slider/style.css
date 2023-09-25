@@ -10,7 +10,7 @@ body {
 
 main {
   height: 100%;
-  background-color: slategray;
+  background-color: rgba(0, 0, 0, 0.8);
 
   display: grid;
   grid-template-rows: 10vh 90vh;
@@ -19,7 +19,7 @@ main {
 main h1 {
   text-align: center;
   font-size: 50px;
-  color: rgb(26, 25, 25);
+  color: #fff;
   letter-spacing: 5px;
   padding-top: 2rem;
 }
@@ -77,4 +77,8 @@ main h1 {
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.dots-container ion-icon {
+  cursor: pointer;
 }
