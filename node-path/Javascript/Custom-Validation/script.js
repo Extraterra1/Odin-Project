@@ -3,7 +3,7 @@ const form = document.querySelector('form');
 const checkEmail = () => {
   const email = document.querySelector('#email');
 
-  if (email.value.length < 23) return showError(email, 'Too Short, needs to be 23 chars long');
+  if (email.value.length < 13) return showError(email, 'Too Short, needs to be 23 chars long');
 
   email.setCustomValidity('');
   const previousError = email.parentNode.querySelector('span');
@@ -22,6 +22,9 @@ const checkZip = () => {
 const checkPass = () => {
   const pass = document.querySelector('#pass');
   const confirmPass = document.querySelector('#confirmPass');
+  const regex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+
+  if (!regex.test(pass.value)) return showError(pass, 'Minimum eight characters, at least one letter and one number.');
 
   if (pass.value !== confirmPass.value) {
     showError(pass, 'Passwords must match');
@@ -54,5 +57,7 @@ document.querySelectorAll('input').forEach((e) => e.addEventListener('blur', val
 
 form.addEventListener('submit', (evt) => {
   checkEmail();
+  checkPass();
+  checkZip();
   evt.preventDefault();
 });
