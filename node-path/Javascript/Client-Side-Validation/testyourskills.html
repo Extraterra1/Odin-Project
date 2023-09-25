@@ -15,6 +15,13 @@
       * {
         box-sizing: border-box;
       }
+
+      input:invalid {
+        background-color: red;
+      }
+      input:valid {
+        background-color: green;
+      }
     </style>
   </head>
 
@@ -36,6 +43,7 @@
       if (email.validity.valueMissing) error.textContent = 'You need to input an email';
       if (email.validity.tooShort) error.textContent = `Your email has to be longer than 10 characters (Currently ${email.value.length})`;
       if (email.validity.typeMismatch) error.textContent = 'You need to enter a valid email address';
+      if (email.value === 'extraterra1@gmail.com') email.setCustomValidity('thats me');
 
       if (email.validity.valid) error.textContent = '';
       evt.preventDefault();
