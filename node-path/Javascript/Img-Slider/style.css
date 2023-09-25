@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Basico', sans-serif;
+}
+
+main {
+  height: 100%;
+  background-color: slategray;
+
+  display: grid;
+  grid-template-rows: 10vh 90vh;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 50px;
+  color: rgb(26, 25, 25);
+  letter-spacing: 5px;
+  padding-top: 2rem;
+}
+
+.image {
+  position: relative;
+}
+
+.image img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.image ion-icon.move {
+  position: absolute;
+  font-size: 4rem;
+  color: #fff;
+  z-index: 10;
+  transition: all 0.3s;
+}
+
+.image ion-icon.move:hover {
+  cursor: pointer;
+  color: gray;
+  transition: all 0.3s;
+}
+
+.image ion-icon.move:first-child {
+  top: 50%;
+}
+.image ion-icon.move:nth-child(2) {
+  top: 50%;
+  right: 0;
+}
+
+.image img.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.8s;
+}
+
+.dots-container {
+  position: absolute;
+  color: #fff;
+  font-size: 2rem;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
