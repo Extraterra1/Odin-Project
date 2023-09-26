@@ -4,8 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fetch Baby Steps</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: slategray;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        grid-template-rows: 1fr;
+      }
+
+      form {
+        position: absolute;
+        top: 10px;
+      }
+    </style>
   </head>
   <body>
+    <form action="">
+      <input type="text" name="search" id="search" placeholder="Search for a new GIF" />
+      <button>Search</button>
+    </form>
+    <img src="" alt="" />
     <script src="main.js"></script>
   </body>
 </html>
