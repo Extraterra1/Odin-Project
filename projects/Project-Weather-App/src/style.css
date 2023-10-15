@@ -1,0 +1,223 @@
+:root {
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --text-success: #198754;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+ul {
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Basico', sans-serif;
+  background-image: url('bg.svg');
+  background-size: cover;
+}
+
+main {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10rem;
+}
+
+main .title {
+  justify-self: center;
+  padding: 1rem;
+}
+
+.title h1 {
+  font-size: 8rem;
+  color: var(--text-light);
+  text-shadow:
+    rgb(0, 0, 0) 3px 0px 0px,
+    rgb(0, 0, 0) 2.83487px 0.981584px 0px,
+    rgb(0, 0, 0) 2.35766px 1.85511px 0px,
+    rgb(0, 0, 0) 1.62091px 2.52441px 0px,
+    rgb(0, 0, 0) 0.705713px 2.91581px 0px,
+    rgb(0, 0, 0) -0.287171px 2.98622px 0px,
+    rgb(0, 0, 0) -1.24844px 2.72789px 0px,
+    rgb(0, 0, 0) -2.07227px 2.16926px 0px,
+    rgb(0, 0, 0) -2.66798px 1.37182px 0px,
+    rgb(0, 0, 0) -2.96998px 0.42336px 0px,
+    rgb(0, 0, 0) -2.94502px -0.571704px 0px,
+    rgb(0, 0, 0) -2.59586px -1.50383px 0px,
+    rgb(0, 0, 0) -1.96093px -2.27041px 0px,
+    rgb(0, 0, 0) -1.11013px -2.78704px 0px,
+    rgb(0, 0, 0) -0.137119px -2.99686px 0px,
+    rgb(0, 0, 0) 0.850987px -2.87677px 0px,
+    rgb(0, 0, 0) 1.74541px -2.43999px 0px,
+    rgb(0, 0, 0) 2.44769px -1.73459px 0px,
+    rgb(0, 0, 0) 2.88051px -0.838247px 0px;
+}
+
+.content {
+  width: 70%;
+  height: 60vh;
+  display: grid;
+  justify-self: center;
+  grid-template-columns: max(20rem, 50%) 1fr;
+  transition: all 1s ease;
+}
+
+.weather-info {
+  padding: 5rem;
+  border-radius: 5px 0 0 5px;
+  background-color: #eee;
+  color: var(--text-dark);
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+
+.weather-info h2 {
+  font-size: 5rem;
+}
+
+.weather-info ul {
+  display: grid;
+  align-items: start;
+  gap: 2rem;
+  grid-auto-rows: min-content;
+}
+.weather-info li,
+.weather-desc {
+  font-size: 2rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+}
+
+.weather-info span.weather-val {
+  justify-self: end;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+li:first-child span.weather-val {
+  position: relative;
+  cursor: pointer;
+}
+
+li:first-child span.weather-val::before {
+  content: 'Click to switch temperature unit';
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  right: 15rem;
+  width: 15ch;
+  background-color: #a8a8a8;
+  padding: 1rem;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+li:first-child span.weather-val:hover::before {
+  opacity: 1;
+}
+
+.weather-info h4 {
+  font-size: 1.5rem;
+  justify-self: center;
+  color: #555c64;
+}
+
+.content .city-image {
+  overflow: hidden;
+  border-radius: 0 5px 5px 0;
+  position: relative;
+}
+
+.city-image img {
+  height: 125%;
+  position: absolute;
+  bottom: 0;
+
+  transition: all 0.3s;
+}
+
+.city-image img:hover {
+  transform: scale(1.3);
+  transition: all 0.3s;
+}
+
+.search-city {
+  position: fixed;
+  outline: none;
+  border: none;
+  appearance: none;
+  bottom: 2rem;
+  right: 2rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-color: #eee;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s;
+}
+
+.search-city:hover {
+  filter: brightness(0.7);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.search-city::before {
+  content: 'Search for a new city';
+  position: absolute;
+  top: -10rem;
+  right: 3rem;
+  font-size: 1.5rem;
+  width: 10ch;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.search-city:hover::before {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.search-city ion-icon {
+  font-size: 5rem;
+  color: var(--text-success);
+}
+
+.swal-popup {
+  gap: 2rem;
+}
+
+.swal-confirm {
+  font-size: 2rem !important;
+  background-color: var(--text-success) !important;
+}
+
+.swal-input {
+  padding: 2rem 1rem !important;
+  font-size: 1.4rem !important;
+}
+
+.swal-input:active,
+.swal-input:focus {
+  box-shadow: none !important;
+  border: 1px solid var(--text-success);
+}
+
+.swal-validation-message {
+  font-size: 1.7rem;
+  border-radius: 5px;
+  padding: 2rem;
+}
