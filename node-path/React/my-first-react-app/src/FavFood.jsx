@@ -27,7 +27,7 @@ export default function FavFood() {
     <>
       <h2>My favorite food is {foods[randomNumber].name}</h2>
       <h4>(Not really this is randomly generated)</h4>
-      <img src={foods[randomNumber].url} alt="" srcset="" />
+      <img src={foods[randomNumber].url} alt="" />
     </>
   );
 }
