@@ -1,3 +1,5 @@
+import ListItem from './ListItem';
+
 export default function List() {
   const animals = ['Lion', 'Cow', 'Snake', 'Lizard'];
   return (
@@ -5,7 +7,7 @@ export default function List() {
       <h1>Animals: </h1>
       <ul>
         {animals.map((el) => (
-          <li key={el}>{el}</li>
+          <ListItem key={el} animal={el} />
         ))}
       </ul>
     </div>
