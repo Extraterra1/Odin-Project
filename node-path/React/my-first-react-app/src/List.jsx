@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
+
 import ListItem from './ListItem';
 
-export default function List() {
-  const animals = ['Lion', 'Cow', 'Snake', 'Lizard'];
+export default function List(props) {
   return (
     <div>
       <h1>Animals: </h1>
       <ul>
-        {animals.map((el) => (
+        {props.animals.map((el) => (
           <ListItem key={el} animal={el} />
         ))}
       </ul>

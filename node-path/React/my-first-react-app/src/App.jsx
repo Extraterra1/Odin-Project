@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
   // const [count, setCount] = useState(0);
+  const animals = ['Lion', 'Cow', 'Snake', 'Lizard'];
 
   return (
     <>
@@ -15,7 +16,7 @@ function App() {
       <img src={reactLogo} alt="" srcSet="" />
       <Greeting />
       <FavFood />
-      <List />
+      <List animals={animals} />
     </>
   );
 }
