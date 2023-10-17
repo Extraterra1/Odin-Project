@@ -21,13 +21,13 @@ export default function FavFood() {
       url: 'https://www.norinesnest.com/wp-content/uploads/2017/05/Street-Tacos-2017-6-e1494612977719.jpg.webp'
     }
   ];
-  const randomNumber = Math.floor(Math.random() * 14);
+  const randomNumber = Math.floor(Math.random() * foods.length);
 
   return (
     <>
       <h2>My favorite food is {foods[randomNumber].name}</h2>
       <h4>(Not really this is randomly generated)</h4>
-      <img src={foods[randomNumber].url} alt="" />
+      <img width="300" src={foods[randomNumber].url} alt="" />
     </>
   );
 }
