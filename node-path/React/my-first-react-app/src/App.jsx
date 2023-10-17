@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg';
 // import viteLogo from '/vite.svg';
 import Greeting from './Greeting';
 import FavFood from './FavFood';
+import List from './List';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <img src={reactLogo} alt="" srcSet="" />
       <Greeting />
       <FavFood />
+      <List />
     </>
   );
 }
