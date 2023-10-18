@@ -79,6 +79,7 @@ button:focus-visible {
 }
 
 .App {
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -109,4 +110,10 @@ button:focus-visible {
 .App button.selected {
   outline: 5px solid #000;
   background-color: #fff;
+}
+
+.App h1 {
+  position: absolute;
+  top: 0;
+  left: 10px;
 }
