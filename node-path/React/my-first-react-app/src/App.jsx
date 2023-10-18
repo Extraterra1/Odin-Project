@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg';
 import Greeting from './Greeting';
 import FavFood from './FavFood';
 import List from './List';
+import Colors from './Colors';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Greeting />
       <FavFood />
       <List animals={animals} />
+      <Colors />
     </>
   );
 }
