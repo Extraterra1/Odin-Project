@@ -5,6 +5,7 @@ import Greeting from './Greeting';
 import FavFood from './FavFood';
 import List from './List';
 import Colors from './Colors';
+import Person from './Person';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <>
       <h1>Hello World</h1>
       <img src={reactLogo} alt="" srcSet="" />
+      <Person />
       <Greeting />
       <FavFood />
       <List animals={animals} />
