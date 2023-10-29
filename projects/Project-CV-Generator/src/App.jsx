@@ -1,9 +1,12 @@
 import './App.css';
+import Header from './Header';
+import CVGen from './CVGen';
 
 function App() {
   return (
     <>
-      <h1>Hey</h1>
+      <Header />
+      <CVGen />
     </>
   );
 }
