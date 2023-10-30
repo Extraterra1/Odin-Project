@@ -6,6 +6,7 @@ import FavFood from './FavFood';
 import List from './List';
 import Colors from './Colors';
 import Person from './Person';
+import Clock from './Clock';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <>
       <h1>Hello World</h1>
       <img src={reactLogo} alt="" srcSet="" />
+      <Clock />
       <Person />
       <Greeting />
       <FavFood />
