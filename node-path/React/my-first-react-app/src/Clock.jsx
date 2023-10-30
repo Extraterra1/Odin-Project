@@ -7,10 +7,14 @@ export default function Clock() {
   //   }, 1000);
 
   useEffect(() => {
-    setInterval(() => {
+    const clock = setInterval(() => {
       setTime((time) => time + 1);
     }, 1000);
-  });
 
-  return <h1>{time}</h1>;
+    return () => {
+      clearInterval(clock);
+    };
+  }, []);
+
+  return <h1>{time} seconds have passed</h1>;
 }
