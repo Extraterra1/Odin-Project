@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@iconify/react": "^4.1.1",
     "eslint-config-prettier": "^9.0.0",
-    "iconify": "^1.4.0",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

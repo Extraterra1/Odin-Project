@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import { Icon } from '@iconify/react';
 import './ClassInput.css';
 
 export default class ClassInput extends Component {
@@ -37,6 +38,12 @@ export default class ClassInput extends Component {
           <div className="form-group">
             <label htmlFor="task-entry">Enter a task: </label>
             <input value={this.state.inputVal} type="text" name="task-entry" onChange={this.handleInputChange} />
+            <span className="delete">
+              <Icon icon="ion:trash-b" />
+            </span>
+            <span className="edit">
+              <Icon icon="ion:edit" />
+            </span>
           </div>
           <button type="submit" onClick={this.handleSubmit}>
             Submit
