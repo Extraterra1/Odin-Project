@@ -7,6 +7,7 @@ import List from './List';
 import Colors from './Colors';
 import Person from './Person';
 import Clock from './Clock';
+import ClassInput from './ClassInput';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <>
       <h1>Hello World</h1>
       <img src={reactLogo} alt="" srcSet="" />
+      <ClassInput />
       <Clock />
       <Person />
       <Greeting />
