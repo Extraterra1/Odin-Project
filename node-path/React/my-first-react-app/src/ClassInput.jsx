@@ -7,7 +7,7 @@ export default class ClassInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
+      todos: ['sample'],
       inputVal: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -38,12 +38,6 @@ export default class ClassInput extends Component {
           <div className="form-group">
             <label htmlFor="task-entry">Enter a task: </label>
             <input value={this.state.inputVal} type="text" name="task-entry" onChange={this.handleInputChange} />
-            <span className="delete">
-              <Icon icon="ion:trash-b" />
-            </span>
-            <span className="edit">
-              <Icon icon="ion:edit" />
-            </span>
           </div>
           <button type="submit" onClick={this.handleSubmit}>
             Submit
@@ -53,7 +47,17 @@ export default class ClassInput extends Component {
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => {
-            return <li key={todo}>{todo}</li>;
+            return (
+              <li key={todo}>
+                <span className="todo-content">{todo}</span>
+                <span className="delete">
+                  <Icon icon="ion:trash-b" />
+                </span>
+                <span className="edit">
+                  <Icon icon="ion:edit" />
+                </span>
+              </li>
+            );
           })}
         </ul>
       </section>

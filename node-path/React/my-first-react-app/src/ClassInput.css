@@ -36,3 +36,27 @@ form button {
 .delete:hover {
   color: crimson;
 }
+
+ul {
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+ul li {
+  border: 1px dashed #eee;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-content {
+  font-size: 2rem;
+}
+
+li span {
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+}
