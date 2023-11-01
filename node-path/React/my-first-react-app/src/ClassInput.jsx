@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import './ClassInput.css';
 
 export default class ClassInput extends Component {
   constructor(props) {
@@ -33,8 +34,10 @@ export default class ClassInput extends Component {
         <h3>{this.props.name}</h3>
         {/* The input field to enter To-Do's */}
         <form>
-          <label htmlFor="task-entry">Enter a task: </label>
-          <input value={this.state.inputVal} type="text" name="task-entry" onChange={this.handleInputChange} />
+          <div className="form-group">
+            <label htmlFor="task-entry">Enter a task: </label>
+            <input value={this.state.inputVal} type="text" name="task-entry" onChange={this.handleInputChange} />
+          </div>
           <button type="submit" onClick={this.handleSubmit}>
             Submit
           </button>

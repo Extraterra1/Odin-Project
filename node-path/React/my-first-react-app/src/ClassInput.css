@@ -1,0 +1,11 @@
+form {
+  max-width: 50%;
+  display: grid;
+  margin: 0 auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+form button {
+  justify-self: center;
+}
