@@ -29,7 +29,7 @@ export default class ClassInput extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState((state) => ({
-      todos: state.todos.concat({ value: state.inputVal, editing: false }),
+      todos: state.todos.concat({ value: state.inputVal, editing: false, editingVal: state.inputVal }),
       inputVal: ''
     }));
   }
@@ -68,6 +68,7 @@ export default class ClassInput extends Component {
     const newTodos = this.state.todos.map((e) => {
       if (e.value !== todo.value) return e;
       return {
+        ...e,
         value: e.editingVal,
         editing: !e.editing
       };
