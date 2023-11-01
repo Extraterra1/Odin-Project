@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Icon } from '@iconify/react';
 import './ClassInput.css';
+import Count from './Count';
 
 export default class ClassInput extends Component {
   constructor(props) {
@@ -50,7 +51,9 @@ export default class ClassInput extends Component {
             Submit
           </button>
         </form>
-        <h4>All the tasks!</h4>
+        <h4>
+          All the tasks! <Count count={this.state.todos.length} />
+        </h4>
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => {

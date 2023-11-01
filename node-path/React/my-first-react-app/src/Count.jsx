@@ -3,6 +3,6 @@ import React, { Component } from 'react';
 
 export default class Count extends Component {
   render() {
-    return <span className="count">{this.props.count}</span>;
+    return <span className="count">({this.props.count} so far)</span>;
   }
 }
