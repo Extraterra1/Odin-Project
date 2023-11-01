@@ -7,7 +7,7 @@ export default class ClassInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: ['sample'],
+      todos: ['sample', 'lorem', 'ipsum'],
       inputVal: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,6 +27,13 @@ export default class ClassInput extends Component {
       todos: state.todos.concat(state.inputVal),
       inputVal: ''
     }));
+  }
+
+  handleDelete(todo) {
+    const newTodos = this.state.todos.filter((e) => e !== todo);
+    this.setState((state) => {
+      return { ...state, todos: newTodos };
+    });
   }
 
   render() {
@@ -50,7 +57,7 @@ export default class ClassInput extends Component {
             return (
               <li key={todo}>
                 <span className="todo-content">{todo}</span>
-                <span className="delete">
+                <span onClick={() => this.handleDelete(todo)} className="delete">
                   <Icon icon="ion:trash-b" />
                 </span>
                 <span className="edit">
