@@ -9,4 +9,7 @@ Counter.propTypes = {
   onClick: PropTypes.func
 };
 
+Counter.defaultProps = {
+  count: 'No clicks yet'
+};
 export default Counter;
