@@ -1,12 +1,23 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import Popeye from './Popeye';
+import Spinach from './Spinach';
 
 const Profile = () => {
+  const { name } = useParams();
+
+  if (name === 'popeye') return <Popeye />;
+  if (name === 'spinach') return <Spinach />;
   return (
     <div>
-      <h1>This is a profile</h1>
-      <h2>(It's a different route)</h2>
-      <p>Nice to meet you</p>
-      <Outlet />
+      <h1>Profiles</h1>
+      <ul>
+        <li>
+          <Link to="/profile/popeye">Popeye</Link>
+        </li>
+        <li>
+          <Link to="/profile/spinach">Spinach</Link>
+        </li>
+      </ul>
     </div>
   );
 };
