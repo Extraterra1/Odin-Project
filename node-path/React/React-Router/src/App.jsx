@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import fetchJSON from './helpers/fetchJSON';
 import './App.css';
 
-function App() {
+const useImgUrl = () => {
   const [img, setImg] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,6 +21,12 @@ function App() {
     };
     fetchData();
   }, []);
+
+  return { img, error, loading };
+};
+
+function App() {
+  const { img, error, loading } = useImgUrl();
 
   return (
     <div>
