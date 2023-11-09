@@ -5,13 +5,20 @@ import fetchJSON from './helpers/fetchJSON';
 import './App.css';
 
 function App() {
-  const [imgUrl, setImgUrl] = useState(null);
+  const [img, setImg] = useState({});
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetchJSON('https://jsonplaceholder.typicode.com/photos');
+      setImg({ url: res[0].url, title: res[0].title });
+    };
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <img src="" alt="" />
+      <img src={img.url} alt="" />
+      <h4>{img.title}</h4>
       <h1>This is the main page</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat a quam natus. Repellat nisi ad aspernatur officiis quae? Eum aliquid distinctio animi
