@@ -7,12 +7,14 @@ import './App.css';
 function App() {
   const [img, setImg] = useState({});
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetchJSON('https://jsonplacehsssolder.typicode.com/photos');
+        const res = await fetchJSON('https://jsonplaceholder.typicode.com/photos');
         setImg({ url: res[0].url, title: res[0].title });
+        setLoading(false);
       } catch (error) {
         setError(error);
       }
@@ -22,6 +24,7 @@ function App() {
 
   return (
     <div>
+      {loading && <p>Loading...</p>}
       {error && <p>{error.message}</p>}
       {img.url && (
         <>
