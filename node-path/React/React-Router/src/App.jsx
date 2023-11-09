@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 // import Profile from './Profile';
 import { Link } from 'react-router-dom';
+import fetchJSON from './helpers/fetchJSON';
 import './App.css';
 
 function App() {
