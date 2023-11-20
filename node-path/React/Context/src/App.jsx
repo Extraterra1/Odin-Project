@@ -5,7 +5,7 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import Header from './Header';
 
-const AppContext = createContext({
+export const AppContext = createContext({
   title: null,
   age: null
 });
