@@ -6,8 +6,8 @@ import './App.css';
 import Header from './Header';
 
 const AppContext = createContext({
-  title: 'Welcome to Context',
-  age: 1000312031
+  title: null,
+  age: null
 });
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
 
   return (
     <>
-      <Header />
+      <AppContext.Provider value={{ title: 'Welcome to Context', age: 312 }}>
+        <Header />
+      </AppContext.Provider>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
