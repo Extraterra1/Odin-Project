@@ -1,9 +1,10 @@
-import { useState, createContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 import reactLogo from './assets/react.svg';
 // eslint-disable-next-line import/no-absolute-path
 import viteLogo from '/vite.svg';
 import './App.css';
 import Header from './Header';
+import Cart from './Cart';
 
 export const AppContext = createContext({
   title: null,
@@ -21,7 +22,7 @@ const reducer = (state, action) => {
 };
 
 function App() {
-  const [count, dispatch] = useReducer(reducer, 0);
+  const [count, dispatchCount] = useReducer(reducer, 0);
 
   return (
     <>
@@ -38,12 +39,13 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => dispatch({ type: 'increment_count' })}>count is {count}</button>
+        <button onClick={() => dispatchCount({ type: 'increment_count' })}>count is {count}</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <Cart />
     </>
   );
 }
