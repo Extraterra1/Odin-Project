@@ -8,7 +8,9 @@ const initialProducts = [
   { id: 5, name: 'Smartphone', price: 599.99, category: 'Electronics' }
 ];
 
-const reducer = (state, action) => {};
+const reducer = (state, action) => {
+  if (action.type === 'remove') return state.filter((e) => e.id !== action.id);
+};
 
 export default function Cart() {
   const [products, dispatch] = useReducer(reducer, initialProducts);
@@ -16,7 +18,7 @@ export default function Cart() {
   return (
     <h4>
       {products.map((e) => (
-        <span style={{ padding: '10px', border: '1px dashed #eee' }} key={e.id}>
+        <span onClick={() => dispatch({ type: 'remove', id: e.id })} style={{ padding: '10px', border: '1px dashed #eee' }} key={e.id}>
           {e.name}
         </span>
       ))}
