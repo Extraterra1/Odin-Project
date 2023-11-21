@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useReducer } from 'react';
 import reactLogo from './assets/react.svg';
 // eslint-disable-next-line import/no-absolute-path
 import viteLogo from '/vite.svg';
@@ -10,8 +10,18 @@ export const AppContext = createContext({
   age: null
 });
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'increment_count':
+      return state + 1;
+
+    default:
+      break;
+  }
+};
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, dispatch] = useReducer(reducer, 0);
 
   return (
     <>
@@ -28,7 +38,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        <button onClick={() => dispatch({ type: 'increment_count' })}>count is {count}</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
