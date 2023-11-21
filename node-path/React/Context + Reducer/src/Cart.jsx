@@ -10,18 +10,26 @@ const initialProducts = [
 
 const reducer = (state, action) => {
   if (action.type === 'remove') return state.filter((e) => e.id !== action.id);
+  if (action.type === 'add') return [...state, state[action.index]];
+};
+
+const randomNumber = (limit) => {
+  return Math.floor(Math.random() * limit);
 };
 
 export default function Cart() {
   const [products, dispatch] = useReducer(reducer, initialProducts);
 
   return (
-    <h4>
-      {products.map((e) => (
-        <span onClick={() => dispatch({ type: 'remove', id: e.id })} style={{ padding: '10px', border: '1px dashed #eee' }} key={e.id}>
-          {e.name}
-        </span>
-      ))}
-    </h4>
+    <>
+      <h4>
+        {products.map((e) => (
+          <span onClick={() => dispatch({ type: 'remove', id: e.id })} style={{ padding: '10px', border: '1px dashed #eee' }} key={e.id}>
+            {e.name}
+          </span>
+        ))}
+      </h4>
+      <button onClick={() => dispatch({ type: 'add', index: randomNumber(products.length) })}>Add Duplicate</button>
+    </>
   );
 }
