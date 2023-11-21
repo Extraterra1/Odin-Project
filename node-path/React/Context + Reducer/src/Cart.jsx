@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-const products = [
+const initialProducts = [
   { id: 1, name: 'Laptop', price: 999.99, category: 'Electronics' },
   { id: 2, name: 'Coffee Maker', price: 49.99, category: 'Kitchen Appliances' },
   { id: 3, name: 'Running Shoes', price: 79.99, category: 'Sports and Outdoors' },
@@ -8,7 +8,11 @@ const products = [
   { id: 5, name: 'Smartphone', price: 599.99, category: 'Electronics' }
 ];
 
+const reducer = (state, action) => {};
+
 export default function Cart() {
+  const [products, dispatch] = useReducer(reducer, initialProducts);
+
   return (
     <h4>
       {products.map((e) => (
