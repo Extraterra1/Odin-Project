@@ -35,6 +35,11 @@
         margin-top: 20px;
         align-self: center;
       }
+
+      .buttons {
+        display: flex;
+        gap: 20px;
+      }
     </style>
   </head>
   <body>
@@ -42,7 +47,11 @@
       <h1>Welcome!</h1>
       <p>This is just a site</p>
       <p>You can be here</p>
-      <a href="/thisdoesntwork"><button>Don't click this</button></a>
+      <div class="buttons">
+        <a href="/about"><button>About</button></a>
+        <a href="/contact"><button>Contact</button></a>
+        <a href="/thisdoesntwork"><button>Don't click this</button></a>
+      </div>
     </main>
   </body>
 </html>
