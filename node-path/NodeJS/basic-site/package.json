@@ -1,0 +1,14 @@
+{
+  "name": "basic-site",
+  "version": "1.0.0",
+  "description": "This is a basic example of a vanilla Node.js HTTP server that serves static HTML files. The server listens on port 8080 and responds to incoming requests by reading corresponding HTML files from the file system. If the requested file is not found, a 404.html file is served instead.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
