@@ -1,0 +1,22 @@
+extends layout
+
+block content 
+    main
+        a(href="/categories/create")
+            .create-btn
+                ion-icon(name="add-outline")
+        section.heading 
+            h2=title
+        section.cards-grid 
+            if categories.length > 0
+                each el in categories 
+                    .card
+                        .card-heading 
+                            h3=el.name
+                            a(href=el.url)
+                                ion-icon(name="link") 
+            else
+                .empty-grid 
+                    h2 No Categories found
+                    p Maybe you should add some
+                    p.small Just saying...

@@ -1,0 +1,31 @@
+extends layout
+
+block content 
+    main
+        section.heading 
+            h2=title
+        section.form
+            form(action="", method="post")
+                .form-group
+                    label(for="name") Name 
+                    input(required, type="text", name="name", id="name", value=(product === undefined ? '' : product.name))
+                .form-group
+                    label(for="price") Price 
+                    input(required, type="number",name="price", id="price", step=0.01, value=(product === undefined ? '' : product.price))
+                .form-group
+                    label(for="category") Quantity 
+                    input(required, type="number",name="quantity", id="quantity", step=1, value=(product === undefined ? '' : product.quantity))
+                .form-group
+                    label(for="category") Category 
+                    select(required, name="category")
+                        each el in categories
+                            if product
+                                option(value=el._id selected=(el._id.toString() === product.category.toString() ? 'selected' : false))=el.name
+                            else 
+                                option(value=el._id)=el.name
+                
+                if errors
+                    ul 
+                        each el in errors 
+                            li=el.msg
+                input.btn.btn-submit(type="submit")

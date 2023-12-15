@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  main 
+    section.heading
+      h2=title
+      p Welcome to Stocky McStockit – Your One-Stop Solution for Organizing and Managing Your Inventory! Discover a seamless way to keep track of products, streamline your workflow, and take control of your inventory. Let's get started on the path to efficient inventory management!
+    section.overview 
+      h3 Overview
+      .count-box 
+        .products-count
+          h4 Total Products: 
+            span=numProducts
+          h4.text-center Latest
+          .latest
+            ul 
+              each el in products 
+                li 
+                  a(href=el.url)=el.name
+              
+        .categories-count 
+          h4 Total Categories: 
+            span=numCategories
+          h4.text-center Latest
+          .latest
+            ul 
+              each el in categories 
+                li 
+                  a(href=el.url)=el.name
