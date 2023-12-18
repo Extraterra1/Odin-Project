@@ -62,18 +62,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user, err: req.query.err });
 });
+
 app.post(
   '/',
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/'
+    failureRedirect: '/?err'
   })
 );
+
 app.get('/signUp', (req, res) => {
   res.render('signUp');
 });
+
 app.post(
   '/signUp',
   asyncHandler(async (req, res) => {
@@ -85,5 +88,14 @@ app.post(
     res.redirect('/');
   })
 );
+
+app.get('/logOut', (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
 
 app.listen(3000, () => console.log('listening on port 3000'));

@@ -96,3 +96,7 @@ input:focus {
   background-color: var(--success);
   color: var(--light);
 }
+.btn-danger {
+  background-color: var(--danger);
+  color: var(--light);
+}
