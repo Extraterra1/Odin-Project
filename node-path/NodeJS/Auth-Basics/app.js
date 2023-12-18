@@ -38,5 +38,8 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
   res.render('index');
 });
+app.get('/signUp', (req, res) => {
+  res.render('signUp');
+});
 
 app.listen(3000, () => console.log('listening on port 3000'));
