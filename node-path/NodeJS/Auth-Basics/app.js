@@ -34,9 +34,9 @@ app.use(session({ secret: 'liandrys anguish', resave: false, saveUninitialized: 
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-      const user = await User.findOne(username);
+      const user = await User.findOne({ username });
       if (!user) return done(null, false, { message: 'Incorrect username' });
-      if (user.password !== passwrod) return done(null, false, { message: 'Incorrect password' });
+      if (user.password !== password) return done(null, false, { message: 'Incorrect password' });
       return done(null, user);
     } catch (err) {
       return done(err);
@@ -49,7 +49,7 @@ passport.serializeUser((user, done) => {
 });
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = User.findById(id);
+    const user = await User.findById(id);
     done(null, user);
   } catch (err) {
     done(err);
@@ -62,8 +62,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { user: req.user });
 });
+app.post(
+  '/',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  })
+);
 app.get('/signUp', (req, res) => {
   res.render('signUp');
 });

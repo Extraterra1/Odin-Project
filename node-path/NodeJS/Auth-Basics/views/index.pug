@@ -5,17 +5,21 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="styles.css")
         title Welcome
-    body 
-        h1 Hello World
-        .container
-            .title 
-                h1 Log In
-            form(method="post").content
-                .form-group 
-                    label(for='username') Username 
-                    input(type="text", name="username", id="username", required)
-                .form-group 
-                    label Password 
-                    input(type="password", name="pass", required)
-                button.btn.btn-success Submit
-        a(href="/signUp").btn.btn-info Sign Up
+    body
+        if user
+            h1 Hello World
+            h2 Welcome #{user.username}
+            a(href="logOut").btn.btn-danger Log Out
+        else
+            .container
+                .title 
+                    h1 Log In
+                form(method="post").content
+                    .form-group 
+                        label(for='username') Username 
+                        input(type="text", name="username", id="username", required)
+                    .form-group 
+                        label Password 
+                        input(type="password", name="password", required)
+                    button.btn.btn-success Submit
+            a(href="/signUp").btn.btn-info Sign Up
