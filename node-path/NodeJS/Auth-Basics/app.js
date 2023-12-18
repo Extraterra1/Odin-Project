@@ -3,6 +3,7 @@ const path = require('path');
 const session = require('express-session');
 const asyncHandler = require('express-async-handler');
 const passport = require('passport');
+const bcrypt = require('bcryptjs');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -36,7 +37,8 @@ passport.use(
     try {
       const user = await User.findOne({ username });
       if (!user) return done(null, false, { message: 'Incorrect username' });
-      if (user.password !== password) return done(null, false, { message: 'Incorrect password' });
+      const match = await bcrypt.compare(user.password, password);
+      if (!match) return done(null, false, { message: 'Incorrect password' });
       return done(null, user);
     } catch (err) {
       return done(err);
@@ -62,14 +64,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('index', { user: req.user, err: req.query.err });
+  const err = req.session.messages;
+  req.session.messages = [];
+  res.render('index', { user: req.user, err });
 });
 
 app.post(
   '/',
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/?err'
+    failureMessage: true,
+    failureRedirect: '/'
   })
 );
 
@@ -80,9 +85,10 @@ app.get('/signUp', (req, res) => {
 app.post(
   '/signUp',
   asyncHandler(async (req, res) => {
+    const hashedPassword = await bcrypt.hash(req.body.pass, 10);
     const user = new User({
       username: req.body.username,
-      password: req.body.pass
+      password: hashedPassword
     });
     const result = await user.save();
     res.redirect('/');

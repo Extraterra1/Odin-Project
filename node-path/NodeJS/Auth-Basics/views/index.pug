@@ -23,5 +23,6 @@ html(lang="en")
                         input(type="password", name="password", required)
                     button.btn.btn-success Submit
                 if err !== undefined
-                    p Incorrect Username/Password
+                    each el in err 
+                        p=el
             a(href="/signUp").btn.btn-info Sign Up
