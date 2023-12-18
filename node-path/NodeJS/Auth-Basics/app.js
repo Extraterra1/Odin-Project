@@ -28,3 +28,14 @@ const User = mongoose.model(
 const app = express();
 app.set('views', __dirname);
 app.set('view engine', 'pug');
+
+app.use(session({ secret: 'liandrys anguish', resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+app.listen(3000, () => console.log('listening on port 3000'));
