@@ -33,6 +33,7 @@ app.use(session({ secret: 'liandrys anguish', resave: false, saveUninitialized: 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.render('index');
