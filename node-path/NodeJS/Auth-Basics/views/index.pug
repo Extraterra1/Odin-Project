@@ -7,4 +7,15 @@ html(lang="en")
         title Welcome
     body 
         h1 Hello World
+        .container
+            .title 
+                h1 Log In
+            form(method="post").content
+                .form-group 
+                    label(for='username') Username 
+                    input(type="text", name="username", id="username", required)
+                .form-group 
+                    label Password 
+                    input(type="password", name="pass", required)
+                button.btn.btn-success Submit
         a(href="/signUp").btn.btn-info Sign Up
