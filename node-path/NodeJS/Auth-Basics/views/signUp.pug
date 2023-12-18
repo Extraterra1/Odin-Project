@@ -9,11 +9,11 @@ html(lang="en")
         .container
             .title 
                 h1 Sign Up
-            form.content
+            form(method="post").content
                 .form-group 
                     label(for='username') Username 
-                    input(type="text", name="username", id="username")
+                    input(type="text", name="username", id="username", required)
                 .form-group 
                     label Password 
-                    input(type="password", name="pass")
+                    input(type="password", name="pass", required)
                 button.btn.btn-success Submit
