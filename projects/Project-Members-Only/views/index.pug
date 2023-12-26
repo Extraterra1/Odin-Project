@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  main
+    .title
+      h2 Messages
+    .msg-grid
+      each el in messages 
+        .msg
+          if user !== undefined
+            .msg-header
+              .user
+                span= el.author.name
+                |
+                | on #{ el.formattedAdded }
+              if user.role === 'admin'
+                span
+                  a(href=`/delete/${el._id}`)
+                    ion-icon(name="trash")
+          .msg-content= el.msg

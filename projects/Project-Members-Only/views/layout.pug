@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title #{ title } | Members Only
+    link(rel="stylesheet", href="/stylesheets/style.css")
+  body
+    nav#header
+      h1
+        a(href="/") Members Only
+      aside
+        if user !== undefined
+          h2= user.name
+          a(href="/newMessage")
+            span Submit Message
+          a(href="/logout")
+            ion-icon(name="log-out")
+        else
+          a(href="/login") 
+            span Login
+          a(href="/signUp") 
+            span Sign Up
+        .socials
+          ion-icon(name="logo-twitter")
+          ion-icon(name="logo-github")
+    block content
+    script(
+      type="module",
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    )
+    script(
+      nomodule="",
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    )
