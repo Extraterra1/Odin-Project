@@ -8,12 +8,26 @@ import { jwtDecode } from 'jwt-decode';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [post, setPost] = useState(null);
 
   const login = async () => {
     try {
       const response = await axios.post('http://localhost:3000/api/login');
       setUser({ ...response.data.user, token: response.data.token });
       localStorage.setItem('token', response.data.token);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const createPost = async () => {
+    try {
+      const res = await axios.post('http://localhost:3000/api/posts', null, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      });
+      setPost(res.data.message);
     } catch (err) {
       console.log(err);
     }
@@ -41,7 +55,8 @@ function App() {
       <div className="card">
         {!user && <button onClick={login}>Log In</button>}
         {user && <h1>Token is {'...' + user.token.slice(user.token.length - 10)}</h1>}
-        {user && <button>Test Post Auth</button>}
+        {user && !post && <button onClick={createPost}>Test Post Auth</button>}
+        {post && <p>{post}</p>}
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
