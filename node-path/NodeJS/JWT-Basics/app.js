@@ -47,7 +47,7 @@ app.post("/api/login", (req, res) => {
   };
   jwt.sign({ user }, "cyberpunk 2077", (err, token) => {
     if (err) return res.json({ err });
-    res.json({ token });
+    res.json({ token, user });
   });
 });
 
