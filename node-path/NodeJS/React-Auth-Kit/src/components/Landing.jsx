@@ -1,7 +1,12 @@
-import styled from 'styled-components';
-import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom';
+import Header from './Header';
 
-const Landing = () => {};
+const Landing = () => {
+  return (
+    <>
+      <Header />
+      <h1>Welcome</h1>
+    </>
+  );
+};
 
 export default Landing;

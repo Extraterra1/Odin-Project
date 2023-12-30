@@ -71,18 +71,16 @@ const Header = () => {
   return (
     <HeaderNav>
       <span className="title">
-        <Link to="/">Pixel Emporium</Link>
+        <Link to="/">Auth Test</Link>
       </span>
       <SideWrapper>
         <span>
-          <Link to="/shop">Shop</Link>
+          <Link to="/secure">Secure</Link>
         </span>
         <SocialsWrapper>
-          <Link to="/cart">
-            <span className="cart">
-              <Icon icon="ion:cart" />
-            </span>
-          </Link>
+          <span className="cart">
+            <Link to="/login">Log In</Link>
+          </span>
         </SocialsWrapper>
       </SideWrapper>
     </HeaderNav>
