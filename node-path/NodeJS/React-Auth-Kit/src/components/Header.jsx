@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useAuthUser } from 'react-auth-kit';
+import { useIsAuthenticated } from 'react-auth-kit';
 
 const HeaderNav = styled.nav`
   background-color: #3e3e3e;
@@ -68,7 +68,7 @@ const SocialsWrapper = styled.div`
 `;
 
 const Header = () => {
-  const auth = useAuthUser();
+  const isAuthenticated = useIsAuthenticated();
   return (
     <HeaderNav>
       <span className="title">
@@ -78,7 +78,7 @@ const Header = () => {
         <span>
           <Link to="/secure">Secure</Link>
         </span>
-        {!auth() && (
+        {!isAuthenticated() && (
           <SocialsWrapper>
             <span className="cart">
               <Link to="/login">Log In</Link>
