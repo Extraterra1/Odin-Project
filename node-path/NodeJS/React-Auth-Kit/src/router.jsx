@@ -3,6 +3,7 @@ import { RequireAuth } from 'react-auth-kit';
 
 import Landing from './components/Landing';
 import LogIn from './components/LogIn';
+import Secure from './components/Secure';
 
 const router = createBrowserRouter([
   {
@@ -12,13 +13,15 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LogIn />
+  },
+  {
+    path: '/secure',
+    element: (
+      <RequireAuth loginPath="/login">
+        <Secure />
+      </RequireAuth>
+    )
   }
-  // {
-  //   path: '/secure',
-  //   element: <RequireAuth loginPath='/login'>
-
-  //   </RequireAuth>
-  // }
 ]);
 
 export default router;
