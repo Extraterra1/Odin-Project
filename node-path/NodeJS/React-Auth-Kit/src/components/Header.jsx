@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useIsAuthenticated } from 'react-auth-kit';
+import { Link, useNavigate } from 'react-router-dom';
+import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
 
 const HeaderNav = styled.nav`
   background-color: #3e3e3e;
@@ -69,6 +69,12 @@ const SocialsWrapper = styled.div`
 
 const Header = () => {
   const isAuthenticated = useIsAuthenticated();
+  const signOut = useSignOut();
+  const navigate = useNavigate();
+  const handleSignOut = () => {
+    signOut();
+    return navigate('/?loggedout', { replace: true });
+  };
   return (
     <HeaderNav>
       <span className="title">
@@ -78,13 +84,9 @@ const Header = () => {
         <span>
           <Link to="/secure">Secure</Link>
         </span>
-        {!isAuthenticated() && (
-          <SocialsWrapper>
-            <span className="cart">
-              <Link to="/login">Log In</Link>
-            </span>
-          </SocialsWrapper>
-        )}
+        <SocialsWrapper>
+          <span className="cart">{!isAuthenticated() ? <Link to="/login">Log In</Link> : <span onClick={handleSignOut}>Log Out</span>}</span>
+        </SocialsWrapper>
       </SideWrapper>
     </HeaderNav>
   );
