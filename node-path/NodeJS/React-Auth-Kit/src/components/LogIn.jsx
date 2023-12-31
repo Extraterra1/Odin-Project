@@ -27,8 +27,8 @@ const LogIn = () => {
   };
   return (
     <>
-      <Header />
       {auth() && <Navigate to="/?logged" />}
+      <Header />
       <button onClick={onLogin}>Log In</button>
     </>
   );
